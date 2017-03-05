@@ -13,7 +13,8 @@ import java.awt.image.BufferStrategy;
 
 public class Game extends Canvas implements Runnable
 {
-    public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
+    static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    public static final int WIDTH = (int)screenSize.getWidth(), HEIGHT = (int)screenSize.getHeight();
     private boolean isRunning = false;
     private Thread thread;
 
@@ -30,7 +31,7 @@ public class Game extends Canvas implements Runnable
     {
         spawner = new Spawner();
 
-        new com.company.GUI.Window(WIDTH, HEIGHT, "Doge the Thing", this);
+        new com.company.GUI.Window((int)WIDTH, (int) HEIGHT, "Zombiez", this);
         this.addKeyListener(new KeyInputHandler(spawner.handler));
         this.addMouseListener(menu);
         this.addMouseListener(lose);
@@ -104,7 +105,7 @@ public class Game extends Canvas implements Runnable
         Graphics graphics = bufferStrategy.getDrawGraphics();
 
         graphics.setColor(Color.black);
-        graphics.fillRect(0, 0, WIDTH, HEIGHT);
+        graphics.fillRect(0, 0, (int)WIDTH, (int)HEIGHT);
 
         if(gameState == STATE.Game)
         {
@@ -125,7 +126,7 @@ public class Game extends Canvas implements Runnable
                 spawner.itemHandler.render(graphics);
             } catch (Exception e)
             {
-               System.out.println("Failed to render some object, line 131");
+               System.out.println("Failed to render some object one lose screen");
             }
             lose.render(graphics);
 

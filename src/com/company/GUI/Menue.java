@@ -67,6 +67,10 @@ public class Menue extends MouseAdapter
 
         g.drawString("I'm Out", 260, 390);
         g.drawRect(210, 350, 200, 64);
+
+        Button.button(0.33, 0.25, 0.25, 0.125, "Engage", fnt, g, Color.CYAN);
+
+
     }
 
 }

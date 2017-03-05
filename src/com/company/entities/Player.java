@@ -45,8 +45,8 @@ public class Player extends GameObject
             x += volX + speedBoost;
             y += volY + speedBoost;
 
-        x = Util.clamp(x, 5, Game.WIDTH - 42);
-        y = Util.clamp(y, 5, Game.HEIGHT - 65);
+        x = Util.clamp(x, 5, (int)Game.WIDTH - 42);
+        y = Util.clamp(y, 5, (int)Game.HEIGHT - 65);
 
         collision();
 
@@ -63,8 +63,6 @@ public class Player extends GameObject
     {
         g.setColor(Color.GRAY);
         g.fillRect(x, y, 32, 32);
-
-        handler.addObject(new Trail(x, y, 32, 32, 0.1f, Color.gray, handler));
     }
 
     @Override
